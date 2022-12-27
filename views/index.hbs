@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="search-time">
+                <form action="/" method="get">
+                    <div class="search">
+                        <input name="location" type="text" onblur="getLocation()" id="location" value="{{location}}">
+                    </div>
+                    <button id="subbtn" onclick="autoClick();"></button>
+                </form>
+                <div id="time" class="time">00:00:00</div>
+            </div>
+            <div class="weather-section">
+                <div class="image">
+                    <img src="/{{weather}}.png" alt="">
+                </div>
+                <div class="weather">
+                    {{weather}} {{#if err}}! {{loct}} {{/if}}
+                </div>
+            </div>
+            <div class="weather-details">
+                <div class="weather-detail">
+                    <div class="det"><i class="fa-solid fa-wind"></i> {{speed}} Km/h</div>
+                    <div class="det"><ion-icon name="water"></ion-icon> {{humidity}} g.m<sup>-3</sup></div>
+                    <div class="det"><ion-icon name="sunny-outline"></ion-icon> {{pressure}} Pa</div>
+                </div>
+                <div class="tempratures">
+                    <p class="min-max">min: {{min_temp}} <sup>&deg;</sup>C - max {{max_temp}} <sup>&deg;</sup>C</p>
+                    <p class="temprature">{{temperature}}<sup>&deg;</sup></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+    {{!-- {{#each data}}
+        {{temp}}
+        {{temp_min}}
+        {{feels_like}}
+        {{temp_max}}
+        {{pressure}}
+        {{humidity}}
+        {{speed}}
+        {{deg}}
+        {{country}}
+        {{data}}
+    {{/each}} --}}
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+
+        function getLocation(){
+            let loct = document.getElementById("location").value;
+            let clicked = document.getElementById("subbtn");
+            console.log(loct);
+            clicked.click();
+        }
+        function autoClick(){
+            console.log("Button Clicked");
+        }
+
+        setInterval(() => {
+            let time = new Date();
+            let h = time.getHours();
+            let m = time.getMinutes();
+            let s = time.getSeconds();
+            h = h < 10 ? "0" + h : h;
+            m = m < 10 ? "0" + m : m;
+            s = s < 10 ? "0" + s : s;
+
+            time = h + ":"+ m + ":" + s;
+            document.getElementById("time").innerText = time;
+        }, 1000);
+    </script>
+</body>
+</html>

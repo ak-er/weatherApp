@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #1a1b1c;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    width: 300px;
+    height: 400px;
+    background-image: linear-gradient(206deg, #000000 0%, #434343 100%);
+    padding: 1rem;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 2px 3px 5px #000;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.search-time{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20px;
+}
+.search input{
+    background: transparent;
+    border: none;
+    color: #fff;
+    width: 100px;
+    box-shadow: 0 0 4px #434343;
+    border-radius: 4px;
+    padding: 4px;
+    text-align: center;
+    outline: none;
+}
+.weather-section{
+    width: 100%;
+    height: 200px;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    line-height: 30px;
+    text-transform: capitalize;
+}
+.weather-section .image{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+}
+.image img{
+    display: inline-block;
+    width: 100px;
+    height: 100%;
+    margin: auto;
+}
+.weather-details{
+    height: 140px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+.weather-details .det{
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+.tempratures .min-max {
+    text-transform: uppercase;
+    margin-right: 10px;
+    font-size: 0.7rem;
+}
+.weather-details .temprature{
+    font-size: 4rem;
+    line-height: 4rem;
+    text-align: right;
+}
+#subbtn{
+    display: none;
+}

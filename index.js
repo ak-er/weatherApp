@@ -6,6 +6,7 @@ const https = require('https');
 const PORT = process.env.PORT || 3011;
 // set view engine
 app.set('view engine', 'hbs');
+// absolute path
 app.use(express.static(path.join(__dirname, "public")));
 app.get("/", (req, res) => {
     let loct = req.query.location;
